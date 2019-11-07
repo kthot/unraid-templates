@@ -59,8 +59,8 @@
     </Volume>
   </Data>
   <WebUI/>
-  <Banner>https://github.com/kthot/unraid-templates/raw/master/img/PostgreSQL-banner.png</Banner>
-  <Icon>https://github.com/kthot/unraid-templates/raw/master/img/PostgreSQL-logo.png</Icon>
+  <Banner>https://github.com/kthot/unraid-templates/raw/master/PostgreSQL-banner.png</Banner>
+  <Icon>https://github.com/kthot/unraid-templates/raw/master/PostgreSQL-logo.png</Icon>
   <ExtraParams></ExtraParams>
   <Config Type="Path" Name="Database Storage Path" Target="/var/lib/postgresql/data" Default="/mnt/cache/appdata/postgres" Mode="rw" Display="always" Required="true" Description="This is where Postgres will store it's data.">/mnt/cache/appdata/postgres</Config>
   <Config Type="Port" Name="Web Interface Port" Target="5432" Default="5432" Mode="tcp" Display="always-hide" Required="true" Description="This is Postgres TCP connection port.">5432</Config>
