@@ -3,22 +3,14 @@
   <TemplateURL>https://github.com/kthot/unraid-templates/blob/master/postgreSQL9.xml</TemplateURL>
   <Date>2019-11-07</Date>
   <Beta>False</Beta>
-  <Category>Network:Management Productivity: Tools:</Category>
+  <Category>Network:Other</Category>
   <Name>Postgres9</Name>
   <Project>https://www.postgresql.org/</Project>
   <Description>
-    The PostgreSQL object-relational database system provides reliability and data integrity. Pulls the official PostgreSQL 9 Docker image.
-    [br][br]
-
-    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
-    [b]/mnt/cache/appdata/postgres[/b] Directory where Postgres will store its data.[br]
-    [b]Port 5432[/b] Default connection port[br]
-    [b]POSTGRES_PASSWORD[/b] Superuser password. [b]Required to connect another container is not be possible.[/b][br]
-    [b]POSTGRES_USER[/b] Username for the superuser. Defaults to 'postgres'.[br]
-    [b]POSTGRES_DB[/b]Defines name for default database. Defaults to 'user'.[br]
+    The PostgreSQL object-relational database system provides reliability and data integrity. Pulls the official PostgreSQL Docker image with tag '9'.
   </Description>
   <Overview>
-    The PostgreSQL object-relational database system provides reliability and data integrity. Pulls the official PostgreSQL 9 Docker image.
+    The PostgreSQL object-relational database system provides reliability and data integrity. Pulls the official PostgreSQL Docker image with tag '9'.
   </Overview>
   <Registry>https://registry.hub.docker.com/_/postgres/</Registry>
   <GitHub>https://github.com/docker-library/postgres</GitHub>
@@ -48,20 +40,18 @@
       <Name>POSTGRES_DB</Name>
     </Variable>
   </Environment>
-  <Config Name="POSTGRES_PASSWORD" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="Container Variable: POSTGRES_PASSWORD" Type="Variable" Display="always" Required="true" Mask="false"/>
-  <Config Name="POSTGRES_USER" Target="POSTGRES_USER" Default="" Mode="" Description="Container Variable: POSTGRES_USER" Type="Variable" Display="always" Required="true" Mask="false">postgres</Config>
-  <Config Name="POSTGRES_DB" Target="POSTGRES_DB" Default="" Mode="" Description="Container Variable: POSTGRES_DB" Type="Variable" Display="always" Required="true" Mask="false">postgres</Config>
+  <Config Name="POSTGRES_PASSWORD" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="Container Variable: POSTGRES_PASSWORD, sets the superuser password" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="POSTGRES_USER" Target="POSTGRES_USER" Default="" Mode="" Description="Container Variable: POSTGRES_USER, will create the specified user with superuser power. If it is not specified, then the default user of 'postgres' will be used" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="POSTGRES_DB" Target="POSTGRES_DB" Default="" Mode="" Description="Container Variable: POSTGRES_DB, if it is not specified, then the value of POSTGRES_USER will be used" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Data>
     <Volume>
-      <HostDir>/mnt/cache/appdata/postgres</HostDir>
-      <ContainerDir>/var/lib/postgresql/data</ContainerDir>
+      <HostDir>/mnt/cache/appdata/postgresql</HostDir>
+      <ContainerDir>/var/lib/postgresql</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <WebUI/>
+  <WebUI></WebUI>
   <Banner>https://github.com/kthot/unraid-templates/raw/master/PostgreSQL-banner.png</Banner>
   <Icon>https://github.com/kthot/unraid-templates/raw/master/PostgreSQL-logo.png</Icon>
   <ExtraParams></ExtraParams>
-  <Config Type="Path" Name="Database Storage Path" Target="/var/lib/postgresql/data" Default="/mnt/cache/appdata/postgres" Mode="rw" Display="always" Required="true" Description="This is where Postgres will store it's data.">/mnt/cache/appdata/postgres</Config>
-  <Config Type="Port" Name="Web Interface Port" Target="5432" Default="5432" Mode="tcp" Display="always-hide" Required="true" Description="This is Postgres TCP connection port.">5432</Config>
 </Container>
