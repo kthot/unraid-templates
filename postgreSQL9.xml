@@ -8,6 +8,12 @@
   <Project>https://www.postgresql.org/</Project>
   <Description>
     The PostgreSQL object-relational database system provides reliability and data integrity. Pulls the official PostgreSQL Docker image with tag '9'.
+    [br][br]
+    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+    [b]/mnt/cache/appdata/postgres[/b] Directory where Postgres will store its data.[br]
+    [b]POSTGRES_PASSWORD[/b] sets the superuser password.[br]
+    [b]POSTGRES_USER[/b] will create the specified user with superuser power. If it is not specified, then the default user of 'postgres' will be used.[br]
+    [b]POSTGRES_DB[/b] if it is not specified, then the value of POSTGRES_USER will be used.[br]
   </Description>
   <Overview>
     The PostgreSQL object-relational database system provides reliability and data integrity. Pulls the official PostgreSQL Docker image with tag '9'.
@@ -40,9 +46,9 @@
       <Name>POSTGRES_DB</Name>
     </Variable>
   </Environment>
-  <Config Name="POSTGRES_PASSWORD" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="Container Variable: POSTGRES_PASSWORD, sets the superuser password" Type="Variable" Display="always" Required="true" Mask="false"/>
-  <Config Name="POSTGRES_USER" Target="POSTGRES_USER" Default="" Mode="" Description="Container Variable: POSTGRES_USER, will create the specified user with superuser power. If it is not specified, then the default user of 'postgres' will be used" Type="Variable" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="POSTGRES_DB" Target="POSTGRES_DB" Default="" Mode="" Description="Container Variable: POSTGRES_DB, if it is not specified, then the value of POSTGRES_USER will be used" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="POSTGRES_PASSWORD" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="Container Variable: POSTGRES_PASSWORD, sets the superuser password." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="POSTGRES_USER" Target="POSTGRES_USER" Default="" Mode="" Description="Container Variable: POSTGRES_USER, will create the specified user with superuser power. If it is not specified, then the default user of 'postgres' will be used." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="POSTGRES_DB" Target="POSTGRES_DB" Default="" Mode="" Description="Container Variable: POSTGRES_DB, if it is not specified, then the value of POSTGRES_USER will be used." Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Data>
     <Volume>
       <HostDir>/mnt/cache/appdata/postgresql</HostDir>
